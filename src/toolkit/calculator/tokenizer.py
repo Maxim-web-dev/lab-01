@@ -1,3 +1,6 @@
+from toolkit.errors import WrongSymbolError
+
+
 def tokenize(expr):
 	# Получаем на вход выражение типа string
 	tokens = []
@@ -29,5 +32,5 @@ def tokenize(expr):
 			i+=1
 			continue
 		# Если символ - не знак, и не число, тогда вызываем ошибку
-		raise Exception(f'Неизвестный символ {expr[i]}')
+		raise WrongSymbolError(expr[i])
 	return tokens
