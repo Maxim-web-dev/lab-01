@@ -53,3 +53,18 @@ class WrongSymbolError (CalculatorError):
 class DivisionByZeroError (CalculatorError):
 	def __init__(self):
 		super().__init__('Деление на ноль запрещено')
+
+# Неизвестная единица измерения
+class UnknownUnitError(CalculatorError):
+    def __init__(self, value):
+        super().__init__(f"Неизвестная единица измерения: {value}")
+
+# Несовместимые единицы измерения
+class IncompatibleUnitsError(CalculatorError):
+    def __init__(self, value):
+        super().__init__(f"Несовместимые единицы измерения: {value}")
+
+# Температура не может быть ниже абсолютного нуля
+class BelowAbsoluteZeroError(CalculatorError):
+    def __init__(self, value):
+        super().__init__(f"Температура ниже абсолютного нуля: {value}")
