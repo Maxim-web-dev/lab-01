@@ -1,6 +1,7 @@
 # Функция Валидация. Реализована методом посимвольного анализа. Пробегаемся по каждому токену после токенизации и проверяем общее выражение на различные ошибки, например, 2 числа подряд; точка в конце выражения; 2 оператора подряд и другое.
 
 from toolkit.errors import *
+
 from .tokenizer import tokenize
 
 
@@ -48,4 +49,4 @@ def validation (expr):
 			# После любого оператора не может идти еще один оператор, например 2+/2
 			if current_type in ('UOPERATOR', 'OPERATOR') and next_type == 'OPERATOR':
 				raise ManyOperatorsError(f'{current_data}, {next_data}')
-
+	return tokens
